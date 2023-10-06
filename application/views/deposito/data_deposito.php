@@ -29,8 +29,9 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama</th>
               <th>Nomor KTP</th>
+              <th>Nama</th>
+              <th>Jenis Kelamin</th>
               <th>Alamat</th>
               <th>Jumlah Deposito</th>
               <th>Lama Deposito</th>
@@ -43,10 +44,11 @@
             foreach ($row->result() as $kamu => $data) { ?>
               <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data->Nama_Lengkap ?></td>
                 <td><?= $data->No_KTP ?></td>
+                <td><?= $data->Nama_Lengkap ?></td>
+                <td><?= $data->Jenis_Kelamin ?></td>
                 <td><?= $data->Alamat_Lengkap ?></td>
-                <td><?= $data->Jumlah_Deposito ?></td>
+                <td>Rp <?= number_format($data->Jumlah_Deposito, 0, ',', '.'); ?></td>
                 <td><?= $data->Lama_Deposito ?></td>
                 <td>
                   <a href="<?= site_url('deposito/edit/' . $data->id_Deposito) ?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>

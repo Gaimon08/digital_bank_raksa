@@ -4,24 +4,24 @@
   <section class="content-header">
     <h1>
       Halaman
-      <small>Data Kredit KMK</small>
+      <small>Data Tabungan</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Data Kredit KMK</li>
+      <li class="active">Data Tabungan</li>
     </ol>
   </section>
 
   <!-- Main content -->
   <section class="content">
-    <?php $this->load->view('message'); ?>
+  <?php $this->load->view('message'); ?>  
     <!-- Default box -->
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Data Kredit KMK</h3>
+        <h3 class="box-title">Data Tabungan</h3>
         <div class="box-tools pull-right">
-          <a href="<?= site_url('kredit/KMK/add') ?>" class="btn btn-success">
-            <i class="fa fa-plus"></i> Tambah Kredit KMK</a>
+          <a href="<?= site_url('tabungan/add') ?>" class="btn btn-success">
+            <i class="fa fa-plus"></i> Tambah Tabungan</a>
         </div>
       </div>
       <div class="box-body">
@@ -29,14 +29,13 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nomor KTP</th>
               <th>Nama</th>
+              <th>Nomor KTP</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
-              <th>Jenis Agunan</th>
-              <th>Agunan Atas Nama</th>
-              <th>Jumlah Pinjaman</th>
-              <th>Lama Pinjaman</th>
+              <th>Pekerjaan</th>
+              <th>Jenis Tabungan</th>
+              <th>Jumlah Tabungan Awal</th>
               <th class="text-center" style="width: 8%;">Action</th>
             </tr>
           </thead>
@@ -46,17 +45,16 @@
             foreach ($row->result() as $kamu => $data) { ?>
               <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data->No_KTP ?></td>
                 <td><?= $data->Nama_Lengkap ?></td>
+                <td><?= $data->No_KTP ?></td>
                 <td><?= $data->Jenis_Kelamin ?></td>
                 <td><?= $data->Alamat_Lengkap ?></td>
-                <td><?= $data->Jenis_Agunan ?></td>
-                <td><?= $data->Agunan_Atas_Nama ?></td>
-                <td>Rp <?= number_format($data->Jumlah_Pinjaman, 0, ',', '.'); ?></td>
-                <td><?= $data->Lama_Pinjaman ?></td>
+                <td><?= $data->Pekerjaan ?></td>
+                <td><?= $data->Jenis_Tabungan ?></td>
+                <td>Rp <?= number_format($data->Tabungan_Awal, 0, ',', '.'); ?></td>
                 <td>
-                  <a href="<?= site_url('Kredit_KMK/edit/' . $data->id_KMK) ?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
-                  <a href="<?= site_url('Kredit_KMK/hapus/' . $data->id_KMK) ?>" onclick="return confirm('Yakin Hapus data!!')" class="btn btn-warning btn-sm"><i class="fa fa-trash"></i></a>
+                  <a href="<?= site_url('tabungan/edit/' . $data->id_tabungan) ?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
+                  <a href="<?= site_url('tabungan/hapus/' . $data->id_tabungan) ?>" onclick="return confirm('Yakin Hapus data!!')" class="btn btn-warning btn-sm"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
             <?php } ?>

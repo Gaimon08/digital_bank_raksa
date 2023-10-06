@@ -32,6 +32,13 @@
                         <!-- Menampilkan pesan validasi khusus untuk bidang ini -->
                         <?php echo form_error('Email'); ?>
                     </div>
+                    
+                    <div class="form-group">
+                        <label>No KTP</label>
+                        <input type="text" class="form-control" placeholder="Masukkan Nomor KTP..." name="No_KTP" value="<?= set_value('No_KTP', $pengajuan_kredit->No_KTP); ?>">
+                        <!-- Menampilkan pesan validasi khusus untuk bidang ini -->
+                        <?php echo form_error('No_KTP'); ?>
+                    </div>
 
                     <div class="form-group">
                         <label>Nama Lengkap</label>
@@ -41,10 +48,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>No KTP</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Nomor KTP..." name="No_KTP" value="<?= set_value('No_KTP', $pengajuan_kredit->No_KTP); ?>">
-                        <!-- Menampilkan pesan validasi khusus untuk bidang ini -->
-                        <?php echo form_error('No_KTP'); ?>
+                        <label>Jenis Kelamin</label>
+                        <select class="form-control" name="Jenis_Kelamin">
+                            <option value="">Pilih Jenis Kelamin Anda</option>
+                            <option value="Laki-Laki" <?= set_select('Jenis_Kelamin', 'Laki-Laki', ($pengajuan_kredit->Jenis_Kelamin == 'Laki-Laki')); ?>>Laki-Laki</option>
+                            <option value="Perempuan" <?= set_select('Jenis_Kelamin', 'Perempuan', ($pengajuan_kredit->Jenis_Kelamin == 'Perempuan')); ?>>Perempuan</option>
+                        </select>
+                        <?php echo form_error('Jenis_Kelamin'); ?>
                     </div>
 
                     <div class="form-group">
@@ -109,7 +119,7 @@
 
                     <div class="form-group">
                         <label>Jumlah Pinjaman</label>
-                        <input type="text" class="form-control" placeholder="Masukkan nominal pinjaman..." name="jml_pinjaman" value="<?= set_value('jml_pinjaman', $pengajuan_kredit->Jumlah_Pinjaman); ?>">
+                        <input type="text" class="form-control" id="jml_pinjaman" placeholder="Masukkan nominal pinjaman..." name="jml_pinjaman" value="<?= number_format($pengajuan_kredit->Jumlah_Pinjaman, 0, ',', '.'); ?>">
                         <!-- Menampilkan pesan validasi khusus untuk bidang ini -->
                         <?php echo form_error('jml_pinjaman'); ?>
                     </div>

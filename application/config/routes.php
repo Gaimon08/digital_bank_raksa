@@ -58,14 +58,22 @@ $route['kredit/KMK'] = 'Kredit_KMK/index';
 $route['kredit/KMK/add'] = 'Kredit_KMK/tambah';
 $route['kredit/KMK/edit'] = 'Kredit_KMK/edit';
 
+// KREDIT KAB
 $route['kredit/KAB'] = 'Kredit_KAB/index';
 $route['kredit/KAB/add'] = 'Kredit_KAB/tambah';
 $route['kredit/KAB/edit'] = 'Kredit_KAB/edit';
 
+// KREDIT PEGAWAI
 $route['kredit/kredit_pegawai'] = 'Kredit_pegawai/index';
 $route['kredit/kredit_pegawai/add'] = 'Kredit_pegawai/tambah';
 $route['kredit/kredit_pegawai/edit'] = 'Kredit_pegawai/edit';
 
+// DEPOSITO
 $route['deposito'] = 'Deposito/index';
 $route['deposito/add'] = 'Deposito/tambah';
 $route['deposito/edit'] = 'Deposito/edit';
+
+// TABUNGAN TAMADES
+$route['tabungan'] = 'Tabungan/index';
+$route['tabungan/add'] = 'Tabungan/tambah';
+$route['tabungan/edit'] = 'Tabungan/edit';

@@ -94,9 +94,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i>Buka Tabungan Tamades</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Buka Tabungan Taprona</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i> Buka Tabungan Ceremaiku</a></li>
+            <li><a href="<?=site_url('tabungan')?>"><i class="fa fa-circle-o"></i>Buka Tabungan Bank Raksa</a></li>
           </ul>
         </li>
     
@@ -188,5 +186,27 @@
         $(document).ready(function() {
             $('#table2').DataTable()
         })
+
+    
+        var inputJumlahPinjaman = document.getElementById('jml_pinjaman');
+
+inputJumlahPinjaman.addEventListener('input', function () {
+    // Hilangkan simbol "Rp" dan pemisah ribuan, kemudian ubah ke angka bulat
+    var nilaiTanpaRp = inputJumlahPinjaman.value.replace(/[^\d]/g, '');
+
+    // Format angka ke dalam format rupiah dengan pemisah ribuan
+    var formattedValue = formatRupiah(nilaiTanpaRp);
+
+    // Tampilkan nilai yang diformat dalam input
+    inputJumlahPinjaman.value = formattedValue;
+});
+
+// Fungsi untuk memformat angka ke dalam format rupiah dengan pemisah titik
+function formatRupiah(angka) {
+    var numberFormat = Number(angka).toLocaleString('id-ID');
+    return numberFormat;
+}
+
+
     </script>
 </html>

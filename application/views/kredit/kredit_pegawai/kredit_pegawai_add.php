@@ -30,14 +30,23 @@
             <?php echo form_error('Email'); ?>
           </div>
           <div class="form-group">
+            <label>No KTP</label>
+            <input type="text" class="form-control" placeholder="Masukkan Nomor KTP..." name="No_KTP">
+            <?php echo form_error('No_KTP'); ?>
+          </div>
+          <div class="form-group">
             <label>Nama Lengkap</label>
             <input type="text" class="form-control" placeholder="Masukkan Nama Lengkap..." name="Nama">
             <?php echo form_error('Nama'); ?>
           </div>
           <div class="form-group">
-            <label>No KTP</label>
-            <input type="text" class="form-control" placeholder="Masukkan Nomor KTP..." name="No_KTP">
-            <?php echo form_error('No_KTP'); ?>
+            <label>Jenis Kelamin</label>
+            <select class="form-control" name="Jenis_Kelamin">
+              <option value="">Pilih Jenis Kelamin Anda</option>
+              <option value="Laki-Laki">Laki-Laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+            <?php echo form_error('Jenis_Kelamin'); ?>
           </div>
           <div class="form-group">
             <label>Alamat</label>
@@ -99,7 +108,7 @@
 
           <div class="form-group">
             <label>Jumlah Pinjaman</label>
-            <input type="text" class="form-control" placeholder="Masukkan nominal pinjaman..." name="jml_pinjaman">
+            <input type="text" class="form-control" id="jml_pinjaman" placeholder="Masukkan nominal pinjaman..." name="jml_pinjaman" >
             <?php echo form_error('jml_pinjaman'); ?>
           </div>
 

@@ -3,13 +3,13 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tambah Deposito
+      Tambah Tabungan Bank Raksa
       <small>it all starts here</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Deposito</a></li>
-      <li class="active">Tambah Deposito</li>
+      <li><a href="#">Tabungan</a></li>
+      <li class="active"> Tambah Tabungan Bank Raksa</li>
     </ol>
   </section>
 
@@ -17,18 +17,18 @@
   <section class="content">
     <div class="box box-primary">
       <div class="box-header">
-        <h3 class="box-title">FORM Deposito</h3>
+        <h3 class="box-title">FORM PENDAFTARAN TABUNGAN</h3>
       </div>
       <div class="box-body">
            <!-- Menampilkan pesan validasi -->
            <?php echo validation_errors(); ?>
            
-        <form method="post" action="<?php echo base_url() . 'Deposito/simpan'; ?>" enctype="multipart/form-data">
+        <form method="post" action="<?php echo base_url() . 'Tabungan/simpan'; ?>" enctype="multipart/form-data">
           <div class="form-group">
             <label>Email</label>
             <input type="text" class="form-control" placeholder="Masukkan Alamat Email..." name="Email">
             <?php echo form_error('Email'); ?>
-          </div>
+          </div> 
           <div class="form-group">
             <label>No KTP</label>
             <input type="text" class="form-control" placeholder="Masukkan Nomor KTP..." name="No_KTP">
@@ -64,22 +64,22 @@
             <?php echo form_error('pekerjaan'); ?>
           </div>
           <div class="form-group">
-            <label>Jumlah Deposito</label>
-            <input type="text" class="form-control" id="jml_pinjaman" placeholder="Masukkan nominal deposito..." name="jml_deposito" >
-            <?php echo form_error('jml_deposito'); ?>
+            <label>Jenis Tabungan</label>
+            <select class="form-control" name="Jenis_Tabungan">
+              <option value="">Pilih Tabungan Anda</option>
+              <option value="Tamades">Tabungan Tamades</option>
+              <option value="Taprona">Tabungan Taprona</option>
+              <option value="Ciremaiku">Tabungan Ciremaiku</option>
+            </select>
+            <?php echo form_error('Jenis_Tabungan'); ?>
+          </div>
+          <div class="form-group">
+            <label>Jumlah Tabungan Awal</label>
+            <input type="text" class="form-control" id="jml_pinjaman" placeholder="Masukkan nominal tabungan awal..." name="Tabungan_Awal" >
+            <?php echo form_error('Tabungan_Awal'); ?>
           </div>
 
-          <div class="form-group">
-            <label>Lama Deposito</label>
-            <select class="form-control" name="lama_deposito">
-              <option value="">Pilih Lama Deposito</option>
-              <option value="1 Bulan">1 Bulan</option>
-              <option value="3 Bulan">3 Bulan</option>
-              <option value="6 Bulan">6 Bulan</option>
-              <option value="12 Bulan">12 Bulan</option>
-            </select>
-            <?php echo form_error('lama_deposito'); ?>
-          </div>
+         
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
       </div>
@@ -87,4 +87,3 @@
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
-

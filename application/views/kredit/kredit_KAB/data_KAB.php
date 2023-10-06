@@ -29,8 +29,9 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama</th>
               <th>Nomor KTP</th>
+              <th>Nama</th>
+              <th>Jenis Kelamin</th>
               <th>Alamat</th>
               <th>Jenis Agunan</th>
               <th>Agunan Atas Nama</th>
@@ -45,12 +46,13 @@
             foreach ($row->result() as $kamu => $data) { ?>
               <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $data->Nama_Lengkap ?></td>
                 <td><?= $data->No_KTP ?></td>
+                <td><?= $data->Nama_Lengkap ?></td>
+                <td><?= $data->Jenis_Kelamin ?></td>
                 <td><?= $data->Alamat_Lengkap ?></td>
                 <td><?= $data->Jenis_Agunan ?></td>
                 <td><?= $data->Agunan_Atas_Nama ?></td>
-                <td><?= $data->Jumlah_Pinjaman ?></td>
+                <td>Rp <?= number_format($data->Jumlah_Pinjaman, 0, ',', '.'); ?></td>
                 <td><?= $data->Lama_Pinjaman ?></td>
                 <td>
                   <a href="<?= site_url('Kredit_KAB/edit/' . $data->id_KAB) ?>" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>

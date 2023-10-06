@@ -26,16 +26,16 @@ class Kredit_KAB extends CI_Controller {
     
         // Atur aturan validasi
         $this->form_validation->set_rules('Email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('Nama', 'Nama Lengkap', 'required');
         $this->form_validation->set_rules('No_KTP', 'Nomor KTP', 'required');
+        $this->form_validation->set_rules('Nama', 'Nama Lengkap', 'required');
+        $this->form_validation->set_rules('Jenis_Kelamin', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('Alamat', 'Alamat Lengkap', 'required');
         $this->form_validation->set_rules('No_HP', 'Nomor Handphone', 'required');
         $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
         $this->form_validation->set_rules('jenis_agunan', 'Jenis Agunan', 'required');
         $this->form_validation->set_rules('radio_group', 'Agunan Atas Nama', 'required');
-        $this->form_validation->set_rules('jml_pinjaman', 'Jumlah Pinjaman', 'required|numeric');
+        $this->form_validation->set_rules('jml_pinjaman', 'Jumlah Pinjaman', 'required');
         $this->form_validation->set_rules('lama_pinjaman', 'Lama Pinjaman', 'required');
-    
         // Periksa apakah validasi berhasil
         if ($this->form_validation->run() == FALSE) {
             // Jika validasi gagal, kembali ke halaman tambah dengan pesan error
@@ -44,14 +44,15 @@ class Kredit_KAB extends CI_Controller {
             // Jika validasi berhasil, lanjutkan dengan menyimpan data
             $data = array(
                 'Email' => $this->input->post('Email'),
-                'Nama_Lengkap' => $this->input->post('Nama'),
                 'No_KTP' => $this->input->post('No_KTP'),
+                'Nama_Lengkap' => $this->input->post('Nama'),
+                'Jenis_Kelamin' => $this->input->post('Jenis_Kelamin'),
                 'Alamat_Lengkap' => $this->input->post('Alamat'),
                 'No_Handphone' => $this->input->post('No_HP'),
                 'Pekerjaan' => $this->input->post('pekerjaan'),
                 'Jenis_Agunan' => $this->input->post('jenis_agunan'),
                 'Agunan_Atas_Nama' => $this->input->post('radio_group'),
-                'Jumlah_Pinjaman' => $this->input->post('jml_pinjaman'),
+                'Jumlah_Pinjaman' => str_replace(['Rp ', '.'], '', $this->input->post('jml_pinjaman')),
                 'Lama_Pinjaman' => $this->input->post('lama_pinjaman')
             );
     
@@ -86,14 +87,15 @@ public function update() {
 
     // Atur aturan validasi
     $this->form_validation->set_rules('Email', 'Email', 'required|valid_email');
-    $this->form_validation->set_rules('Nama', 'Nama Lengkap', 'required');
     $this->form_validation->set_rules('No_KTP', 'Nomor KTP', 'required');
+    $this->form_validation->set_rules('Nama', 'Nama Lengkap', 'required');
+    $this->form_validation->set_rules('Jenis_Kelamin', 'Jenis Kelamin', 'required');
     $this->form_validation->set_rules('Alamat', 'Alamat Lengkap', 'required');
     $this->form_validation->set_rules('No_HP', 'Nomor Handphone', 'required');
     $this->form_validation->set_rules('pekerjaan', 'Pekerjaan', 'required');
     $this->form_validation->set_rules('jenis_agunan', 'Jenis Agunan', 'required');
     $this->form_validation->set_rules('radio_group', 'Agunan Atas Nama', 'required');
-    $this->form_validation->set_rules('jml_pinjaman', 'Jumlah Pinjaman', 'required|numeric');
+    $this->form_validation->set_rules('jml_pinjaman', 'Jumlah Pinjaman', 'required');
     $this->form_validation->set_rules('lama_pinjaman', 'Lama Pinjaman', 'required');
 
     // Periksa apakah validasi berhasil
@@ -105,14 +107,15 @@ public function update() {
         // Jika validasi berhasil, lanjutkan dengan menyimpan perubahan data
         $data = array(
             'Email' => $this->input->post('Email'),
-            'Nama_Lengkap' => $this->input->post('Nama'),
             'No_KTP' => $this->input->post('No_KTP'),
+            'Nama_Lengkap' => $this->input->post('Nama'),
+            'Jenis_Kelamin' => $this->input->post('Jenis_Kelamin'),
             'Alamat_Lengkap' => $this->input->post('Alamat'),
             'No_Handphone' => $this->input->post('No_HP'),
             'Pekerjaan' => $this->input->post('pekerjaan'),
             'Jenis_Agunan' => $this->input->post('jenis_agunan'),
             'Agunan_Atas_Nama' => $this->input->post('radio_group'),
-            'Jumlah_Pinjaman' => $this->input->post('jml_pinjaman'),
+            'Jumlah_Pinjaman' => str_replace(['Rp ', '.'], '', $this->input->post('jml_pinjaman')),
             'Lama_Pinjaman' => $this->input->post('lama_pinjaman')
         );
 
